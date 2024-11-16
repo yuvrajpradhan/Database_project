@@ -1,0 +1,35 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head><title>Update Employee</title></head>
+<body>
+    <form action="{{ url_for('update_employee', employee_id=employee[0]) }}" method="post">
+        <!-- Prefill fields with current employee data -->
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+</head>
+<body>
+    <h2>Update Employee</h2>
+    <form action="{{ url_for('update_employee', employee_id=employee['employee_id']) }}" method="post">
+        <input type="text" name="name" value="{{ employee['name'] }}" required>
+        <input type="email" name="email" value="{{ employee['email'] }}" required>
+        <input type="text" name="phone" value="{{ employee['phone'] }}" required>
+        <input type="text" name="address" value="{{ employee['address'] }}">
+        <input type="date" name="dob" value="{{ employee['dob'] }}">
+        <input type="text" name="gender" value="{{ employee['gender'] }}">
+        <input type="text" name="occupation" value="{{ employee['occupation'] }}">
+        <input type="text" name="department" value="{{ employee['department'] }}">
+        <textarea name="comments">{{ employee['comments'] }}</textarea>
+        <button type="submit">Update Employee</button>
+    </form>
+</body>
+</html>

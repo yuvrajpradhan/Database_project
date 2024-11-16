@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Employees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #4CAF50;
+        }
+
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+
+        .action-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Occupation</th>
+            <th>Department</th>
+            <th>Comments</th>
+            <th>Employee ID</th>
+            <th>Actions</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.phone }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.dob }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.occupation }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.comments }}</td>
+            <td>{{ employee.employee_id }}</td>
+            <td class="action-links">
+                <a href="{{ url_for('edit_employee', employee_id=employee.employee_id) }}">Edit</a> |
+                <a href="{{ url_for('delete_employee', employee_id=employee.employee_id) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

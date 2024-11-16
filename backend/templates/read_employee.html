@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #28a745; /* Green background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        strong {
+            color: #28a745; /* Green text */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745; /* Green button */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .not-found {
+            text-align: center;
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Employee Details</h1>
+    </header>
+
+    <div class="container">
+        {% if employee %}
+            <ul>
+                <li><strong>Name:</strong> {{ employee.name }}</li>
+                <li><strong>Email:</strong> {{ employee.email }}</li>
+                <li><strong>Phone:</strong> {{ employee.phone }}</li>
+                <li><strong>Address:</strong> {{ employee.address }}</li>
+                <li><strong>Date of Birth:</strong> {{ employee.dob }}</li>
+                <li><strong>Gender:</strong> {{ employee.gender }}</li>
+                <li><strong>Occupation:</strong> {{ employee.occupation }}</li>
+                <li><strong>Department:</strong> {{ employee.department }}</li>
+                <li><strong>Comments:</strong> {{ employee.comments }}</li>
+            </ul>
+        {% else %}
+            <p class="not-found">Employee not found.</p>
+        {% endif %}
+        
+        <a href="/create_employee_form">Back to Employee List</a>
+    </div>
+</body>
+</html>
